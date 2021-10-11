@@ -18,7 +18,7 @@ import lombok.EqualsAndHashCode;
 public class TGoods implements Serializable {
 
     private static final long serialVersionUID = 1L;
-
+    private Long id;
     /**
      * sp名字
      */

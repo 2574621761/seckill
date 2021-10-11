@@ -15,6 +15,6 @@ import org.apache.ibatis.annotations.Select;
  */
 @Mapper
 public interface TUserMapper extends BaseMapper<TUser> {
-@Select("SELECT nickname,password,slat,head,register_date,last_login_date,login_count FROM t_user WHERE id=#{moblie}")
+@Select("SELECT id, nickname,password,slat,head,register_date,last_login_date,login_count FROM t_user WHERE id=#{moblie}")
     TUser login(String moblie);
 }

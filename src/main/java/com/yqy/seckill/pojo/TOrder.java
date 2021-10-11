@@ -19,7 +19,7 @@ import lombok.EqualsAndHashCode;
 public class TOrder implements Serializable {
 
     private static final long serialVersionUID = 1L;
-
+    private Long Id;
     private Long userId;
 
     private Long goodsId;
@@ -39,6 +39,7 @@ public class TOrder implements Serializable {
     private Date createDate;
 
     private Date payDate;
+
 
 
 }

@@ -3,6 +3,7 @@ package com.yqy.seckill.mapper;
 import com.yqy.seckill.pojo.TSeckillGoods;
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
 import org.apache.ibatis.annotations.Mapper;
+import org.apache.ibatis.annotations.Update;
 
 /**
  * <p>
@@ -14,5 +15,6 @@ import org.apache.ibatis.annotations.Mapper;
  */
 @Mapper
 public interface TSeckillGoodsMapper extends BaseMapper<TSeckillGoods> {
-
+    @Update("UPDATE t_seckill_goods SET goods_id=#{goodsId}, seckill_price=#{seckillPrice}, stock_count=#{stockCount}, start_date=#{startDate}, end_date=#{endDate} WHERE goods_id=#{goodsId}")
+    Integer updateById1(TSeckillGoods seckillGoods);
 }

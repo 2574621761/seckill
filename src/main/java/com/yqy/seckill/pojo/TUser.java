@@ -21,13 +21,12 @@ import lombok.EqualsAndHashCode;
 public class TUser implements Serializable {
 
     private static final long serialVersionUID = 1L;
-
     private String nickname;
 
     private String password;
 
     private String slat;
-
+    private Long id;
     /**
      * 头像
      */
@@ -47,6 +46,7 @@ public class TUser implements Serializable {
      * 登录次数
      */
     private Integer loginCount;
+
 
 
 }

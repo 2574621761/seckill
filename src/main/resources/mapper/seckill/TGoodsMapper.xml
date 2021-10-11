@@ -18,5 +18,40 @@
         id,
         goods_name, goods_title, goods_img, good_detail, goods_price, goods_stock
     </sql>
+    <select id="findGoodVo" resultType="com.yqy.seckill.vo.GoodsVo">
+        SELECT
+            a.id as id,
+            a.goods_name,
+            a.goods_img,
+            a.goods_price,
+            a.good_detail,
+            a.goods_stock,
+            a.goods_title,
+            b.seckill_price,
+            b.stock_count,
+            b.start_date,
+            b.end_date
+        FROM
+            t_goods a
+                LEFT JOIN t_seckill_goods b ON a.id = b.goods_id
+    </select>
+    <select id="findById" resultType="com.yqy.seckill.vo.GoodsVo">
+        SELECT
+            a.id,
+            a.goods_name,
+            a.goods_img,
+            a.goods_price,
+            a.good_detail,
+            a.goods_stock,
+            a.goods_title,
+            b.seckill_price,
+            b.stock_count,
+            b.start_date,
+            b.end_date
+        FROM
+            t_goods a
+                LEFT JOIN t_seckill_goods b ON a.id = b.goods_id
+        WHERE a.id=#{goodsId}
+    </select>
 
 </mapper>

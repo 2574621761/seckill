@@ -2,6 +2,9 @@ package com.yqy.seckill.service;
 
 import com.yqy.seckill.pojo.TGoods;
 import com.baomidou.mybatisplus.extension.service.IService;
+import com.yqy.seckill.vo.GoodsVo;
+
+import java.util.List;
 
 /**
  * <p>
@@ -13,4 +16,7 @@ import com.baomidou.mybatisplus.extension.service.IService;
  */
 public interface ITGoodsService extends IService<TGoods> {
 
+    List<GoodsVo> findGoodVo();
+
+    TGoods findByid(Long goodsId);
 }
