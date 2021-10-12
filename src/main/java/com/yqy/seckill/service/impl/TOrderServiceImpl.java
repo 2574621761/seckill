@@ -33,7 +33,7 @@ public class TOrderServiceImpl extends ServiceImpl<TOrderMapper, TOrder> impleme
     private TSeckillOrderServiceImpl seckillOrderService;
     @Override
     @Transactional
-    public TOrder seckill(TUser user, GoodsVo goodsVo) {
+    public synchronized TOrder seckill(TUser user, GoodsVo goodsVo) {
         TSeckillGoods seckillGoods=seckillGoodsService.getOne(new QueryWrapper<TSeckillGoods>().eq("goods_id",goodsVo.getId()));
         seckillGoods.setStockCount(seckillGoods.getStockCount()-1);
         seckillGoodsService.updateById1(seckillGoods);
@@ -41,7 +41,7 @@ public class TOrderServiceImpl extends ServiceImpl<TOrderMapper, TOrder> impleme
         TOrder order=new TOrder();
         order.setUserId(user.getId());
         order.setDeliveryAddrId(0L);
-        order.setGoodsId(goodsVo.getGoodsId());
+        order.setGoodsId(goodsVo.getId());
         order.setGoodsCount(1);
         order.setGoodsName(goodsVo.getGoodsName());
         order.setGoodsPrice(seckillGoods.getSeckillPrice());

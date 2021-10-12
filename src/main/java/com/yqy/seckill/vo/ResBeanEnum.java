@@ -14,7 +14,9 @@ public enum ResBeanEnum {
     BIND_ERROR(5002112,"参数校验异常"),
     MOBILE_ERROR(500211,"手机号码格式错误,请查正"),
     EMPTY_STOCK(500500,"库存不足"),
-    REPEATE_ERROR(5005001,"该商品每人限购一件");
+    REPEATE_ERROR(5005001,"该商品每人限购一件"),
+    MOBILE_NOT_ERROR(5002113,"手机号码不存在"),
+    UPDATE_PASSWORD_ERROR(5002114,"更新密码失败");
 
     private final Integer code;
     private final String message;

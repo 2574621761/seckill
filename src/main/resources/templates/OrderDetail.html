@@ -34,8 +34,7 @@
         </tr>
         <tr>
             <td>下单时间</td>
-            <td th:text="${#dates.format(order.createDate, 'yyyy-MM-dd
-HH:mm:ss')}" colspan="2"></td>
+            <td th:text="${#dates.format(order.createDate, 'yyyy-MM-dd HH:mm:ss')}" colspan="2"></td>
         </tr>
         <tr>
             <td>订单状态</td>
@@ -48,8 +47,13 @@ HH:mm:ss')}" colspan="2"></td>
                 <span th:if="${order.status eq 5}">已完成</span>
             </td>
             <td>
-                <button class="btn btn-primary btn-block" type="submit"
-                        id="payButton">立即支付</button>
+                <form id="payForm" method="post"
+                      action="/alipay/pay">
+                    <button class="btn btn-primary btn-block" type="submit"
+                    id="payButton">立即支付</button>
+                    <input type="hidden" name="goodsId" th:value="${goods.id}"/>
+                </form>
+
             </td>
         </tr>
         <tr>

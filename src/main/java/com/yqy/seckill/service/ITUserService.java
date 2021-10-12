@@ -17,8 +17,28 @@ import javax.servlet.http.HttpServletResponse;
  * @since 2021-10-07
  */
 public interface ITUserService extends IService<TUser> {
-
+/**
+* @Description: 登录功能
+* @Param:
+* @return:
+* @Author: yqy
+* @Date: 2021/10/12
+*/
     RespBean login(LOginVo lOginVo, HttpServletRequest request, HttpServletResponse response);
-    //根据cookie获取用户
+    /**
+    * @Description: 根据cookie获取session
+    * @Param:
+    * @return:
+    * @Author: yqy
+    * @Date: 2021/10/12
+    */
     TUser getUserByCookie(String userTickte,HttpServletRequest request,HttpServletResponse response);
+    /**
+    * @Description: 更新密码
+    * @Param:
+    * @return:
+    * @Author: yqy
+    * @Date: 2021/10/12
+    */
+    RespBean updatePassword(String userTickte,String password,HttpServletRequest request,HttpServletResponse respons);
 }

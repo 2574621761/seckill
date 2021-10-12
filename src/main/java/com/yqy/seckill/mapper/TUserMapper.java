@@ -4,6 +4,7 @@ import com.yqy.seckill.pojo.TUser;
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
 import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Select;
+import org.apache.ibatis.annotations.Update;
 
 /**
  * <p>
@@ -17,4 +18,6 @@ import org.apache.ibatis.annotations.Select;
 public interface TUserMapper extends BaseMapper<TUser> {
 @Select("SELECT id, nickname,password,slat,head,register_date,last_login_date,login_count FROM t_user WHERE id=#{moblie}")
     TUser login(String moblie);
+@Update("update t_user set password=#{password} where id=#{id}")
+    Integer updateByIdPassword(TUser user);
 }

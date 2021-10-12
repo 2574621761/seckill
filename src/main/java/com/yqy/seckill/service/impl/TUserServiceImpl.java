@@ -68,10 +68,33 @@ public class TUserServiceImpl extends ServiceImpl<TUserMapper, TUser> implements
         if(StringUtils.isEmpty(userTickte)){
             return null;
         }
+        //redis缓存session
         TUser user= (TUser) redisTemplate.opsForValue().get("user:"+userTickte);
         if (user!=null){
             CookieUtil.setCookie(request,response,"userTicket",userTickte);
         }
         return user;
+    }
+/**
+* @Description: 更新密码
+* @Param:
+* @return:
+* @Author: yqy
+* @Date: 2021/10/12
+*/
+    @Override
+    public RespBean updatePassword(String userTickte, String password,HttpServletRequest request,HttpServletResponse respons) {
+        TUser user=getUserByCookie(userTickte,request,respons);
+        if(user==null){
+            throw new GlobbalException(ResBeanEnum.MOBILE_NOT_ERROR);
+        }
+        user.setPassword(MD5Util.inputPassToDBpass(password,user.getSlat()));
+        int result=userMapper.updateByIdPassword(user);
+        if(result>0){
+            //清除redis对应用户
+            redisTemplate.delete("user:"+userTickte);
+            return RespBean.success();
+        }
+        return RespBean.orror(ResBeanEnum.UPDATE_PASSWORD_ERROR);
     }
 }
