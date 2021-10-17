@@ -38,6 +38,7 @@
     <select id="findById" resultType="com.yqy.seckill.vo.GoodsVo">
         SELECT
             a.id,
+            a.id as "goodsId",
             a.goods_name,
             a.goods_img,
             a.goods_price,

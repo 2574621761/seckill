@@ -50,7 +50,7 @@ public class PayController {
         request.setNotifyUrl(AliPayConfig.notify_url);
         request.setReturnUrl(AliPayConfig.return_url);
         String result = alipayClient.pageExecute(request).getBody();
-        return result;
+        return "/"+result;
     }
     /**
      * 支付宝服务器异步通知页面

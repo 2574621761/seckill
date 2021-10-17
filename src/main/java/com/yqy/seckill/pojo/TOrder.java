@@ -3,6 +3,9 @@ package com.yqy.seckill.pojo;
 import java.io.Serializable;
 import java.math.BigDecimal;
 import java.util.Date;
+
+import com.fasterxml.jackson.databind.annotation.JsonSerialize;
+import com.fasterxml.jackson.databind.ser.std.ToStringSerializer;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 
@@ -16,10 +19,12 @@ import lombok.EqualsAndHashCode;
  */
 @Data
 @EqualsAndHashCode(callSuper = false)
+
 public class TOrder implements Serializable {
 
     private static final long serialVersionUID = 1L;
-    private Long Id;
+    @JsonSerialize(using = ToStringSerializer.class)
+    private Long id;
     private Long userId;
 
     private Long goodsId;

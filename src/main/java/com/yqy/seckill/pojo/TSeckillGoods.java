@@ -19,7 +19,7 @@ import lombok.EqualsAndHashCode;
 public class TSeckillGoods implements Serializable {
 
     private static final long serialVersionUID = 1L;
-
+    private Long id;
     /**
      * 商品id
      */

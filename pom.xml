@@ -79,6 +79,11 @@
             <artifactId>alipay-sdk-java</artifactId>
             <version>4.16.57.ALL</version>
         </dependency>
+        <dependency>
+            <groupId>com.google.zxing</groupId>
+            <artifactId>core</artifactId>
+            <version>3.3.3</version>
+        </dependency>
     </dependencies>
 
     <build>

@@ -150,6 +150,7 @@ public class GoodController {
         dateVo.setRemainSeconds(remainSeconds);
         dateVo.setSecKillStatus(secKillStatus);
         dateVo.setTuser(users);
+        System.out.println(dateVo.getGoodsVo().getGoodsId());
        return RespBean.success(dateVo);
         //  return "goodsDetail";
     }

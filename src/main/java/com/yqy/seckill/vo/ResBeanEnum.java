@@ -16,7 +16,10 @@ public enum ResBeanEnum {
     EMPTY_STOCK(500500,"库存不足"),
     REPEATE_ERROR(5005001,"该商品每人限购一件"),
     MOBILE_NOT_ERROR(5002113,"手机号码不存在"),
-    UPDATE_PASSWORD_ERROR(5002114,"更新密码失败");
+    UPDATE_PASSWORD_ERROR(5002114,"更新密码失败"),
+    SESSION_ERROR(5000215,"用户未登录"),
+    ORDER_NOT_EXIST(500311,"订单信息不存在");
+
 
     private final Integer code;
     private final String message;
